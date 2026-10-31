@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="7" fill="#090b0d"/>
+<path d="M9 11h13l10 31L42 11h13L38 54H26L9 11Z" fill="#eef1f2"/>
+<path d="M26 19h12l-6 19-6-19Z" fill="#090b0d"/>
+<text x="44" y="57" font-family="Arial,sans-serif" font-weight="700" font-size="7" fill="#d8e25c">HB</text>
+</svg>
