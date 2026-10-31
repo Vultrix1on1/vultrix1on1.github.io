@@ -1,1 +1,67 @@
-const menuBtn=document.querySelector('.menu-btn');const nav=document.querySelector('.nav');menuBtn?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));});document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn?.setAttribute('aria-expanded','false');}));const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));const glow=document.querySelector('.cursor-glow');window.addEventListener('pointermove',e=>{if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';}});document.getElementById('year').textContent=new Date().getFullYear();function enquiryData(){return{name:document.getElementById('name')?.value.trim()||'',company:document.getElementById('company')?.value.trim()||'',email:document.getElementById('email')?.value.trim()||'',service:document.getElementById('service')?.value||'',contactpref:document.getElementById('contactpref')?.value||'',requirement:document.getElementById('requirement')?.value.trim()||''};}function enquiryText(d){return`Hello Vultrix Global,\n\nI would like to discuss the following industrial requirement.\n\nName: ${d.name}\nCompany / Plant: ${d.company||'-'}\nEmail: ${d.email||'-'}\nRequirement Type: ${d.service}\nPreferred Contact: ${d.contactpref}\n\nRequirement:\n${d.requirement}\n\nI can share drawings / photographs / specifications as required.`;}document.getElementById('rfq-form')?.addEventListener('submit',e=>{e.preventDefault();const d=enquiryData();if(!d.name||!d.requirement)return;const subject=encodeURIComponent(`RFQ / Technical Enquiry — ${d.service} — ${d.company||d.name}`);const body=encodeURIComponent(enquiryText(d));window.location.href=`mailto:info@vultrixglobal.com?subject=${subject}&body=${body}`;});document.getElementById('whatsapp-rfq')?.addEventListener('click',()=>{const d=enquiryData();const msg=encodeURIComponent(enquiryText(d));window.open(`https://wa.me/919920342119?text=${msg}`,'_blank','noopener');});
+const menuBtn = document.querySelector('.menu-btn');
+const nav = document.querySelector('.nav');
+menuBtn?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuBtn?.setAttribute('aria-expanded','false');
+}));
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const glow = document.querySelector('.cursor-glow');
+window.addEventListener('pointermove', e => {
+  if(glow){ glow.style.left = e.clientX+'px'; glow.style.top = e.clientY+'px'; }
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function enquiryData(){
+  return {
+    name: document.getElementById('name')?.value.trim() || '',
+    company: document.getElementById('company')?.value.trim() || '',
+    email: document.getElementById('email')?.value.trim() || '',
+    service: document.getElementById('service')?.value || '',
+    contactpref: document.getElementById('contactpref')?.value || '',
+    requirement: document.getElementById('requirement')?.value.trim() || ''
+  };
+}
+
+function enquiryText(d){
+  return `Hello Vultrix Global,
+
+I would like to discuss the following industrial requirement.
+
+Name: ${d.name}
+Company / Plant: ${d.company || '-'}
+Email: ${d.email || '-'}
+Requirement Type: ${d.service}
+Preferred Contact: ${d.contactpref}
+
+Requirement:
+${d.requirement}
+
+I can share drawings / photographs / specifications as required.`;
+}
+
+document.getElementById('rfq-form')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const d = enquiryData();
+  if(!d.name || !d.requirement) return;
+  const subject = encodeURIComponent(`RFQ / Technical Enquiry — ${d.service} — ${d.company || d.name}`);
+  const body = encodeURIComponent(enquiryText(d));
+  window.location.href = `mailto:info@vultrixglobal.com?subject=${subject}&body=${body}`;
+});
+
+document.getElementById('whatsapp-rfq')?.addEventListener('click', () => {
+  const d = enquiryData();
+  const msg = encodeURIComponent(enquiryText(d));
+  window.open(`https://wa.me/919920342119?text=${msg}`,'_blank','noopener');
+});
