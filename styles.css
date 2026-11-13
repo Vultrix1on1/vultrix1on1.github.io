@@ -416,3 +416,54 @@ button,input,textarea,select{font:inherit}
   .section-head>p,.position-copy,.visual-copy p,.rfq-copy p{font-size:15.5px}
   .service-card p,.why-card p,.manufacturing-list p,.experience-points span{font-size:14px}
 }
+
+
+/* Official Vultrix Global brand and burner-led hero — Nov 2026 */
+.site-brand-logo{display:block;width:177px;height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff;border:1px solid rgba(255,255,255,.18);padding:1px}
+.footer-official-logo{display:block;width:min(260px,100%);height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff}
+.footer{grid-template-columns:1fr 1fr}
+.hero{min-height:880px;padding-top:156px;padding-bottom:95px;align-items:center;isolation:isolate}
+.hero-bg img{filter:saturate(.22) brightness(.33) contrast(1.2)}
+.hero-overlay{background:linear-gradient(90deg,rgba(4,7,12,.99),rgba(4,7,12,.93) 37%,rgba(3,9,20,.48) 82%),linear-gradient(0deg,#090b0d,transparent 30%)}
+.hero-content{max-width:var(--max);z-index:4}
+.hero .eyebrow{color:#9fb5cc;font-size:10px;letter-spacing:.22em}
+.hero-logo-card{margin-top:24px;background:#fdfdfd;padding:3px;width:min(560px,60%);border:1px solid rgba(255,255,255,.32);box-shadow:0 22px 85px rgba(1,7,19,.7),0 0 0 1px rgba(49,133,209,.22)}
+.hero-logo-card img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:contain}
+.hero h1{font-size:clamp(37px,4.4vw,64px);max-width:700px;margin:28px 0 18px;line-height:1.06;letter-spacing:-.048em}
+.hero h1 span{color:#bdc8d8;font-weight:600}
+.hero-copy{max-width:650px;color:#c0cbd7;font-size:16px;line-height:1.8}
+.hero-actions{margin-top:29px}
+.burner-flame-stage{pointer-events:none;position:absolute;right:-7%;top:11%;height:71%;width:min(880px,62%);z-index:2;opacity:.92;filter:drop-shadow(0 0 24px rgba(4,96,204,.26))}
+.burner-flame-art{height:100%;width:100%;overflow:visible}
+.flame-caption{position:absolute;bottom:0;right:9%;font-size:9px;letter-spacing:.19em;color:#90a7be}
+.flame-movement{transform-origin:230px 322px;animation:flame-dance 3s ease-in-out infinite alternate}
+.flame-outer{animation:flame-flicker 1.65s ease-in-out infinite alternate}
+.flame-mid{animation:flame-flicker 1.2s ease-in-out infinite alternate-reverse}
+.flame-glow,.burner-halo{animation:flame-glow-pulse 2s ease-in-out infinite alternate}
+.flame-ribbon{animation:ribbon-drift 2.4s ease-in-out infinite alternate}
+@keyframes flame-dance{0%{transform:scaleX(.91) scaleY(.94)}48%{transform:scaleX(1.02) scaleY(1.05)}100%{transform:scaleX(1.06) scaleY(.90)}}
+@keyframes flame-flicker{0%{opacity:.72}45%{opacity:1}100%{opacity:.86}}
+@keyframes flame-glow-pulse{from{opacity:.45}to{opacity:.95}}
+@keyframes ribbon-drift{from{transform:translateY(-20px);opacity:.22}to{transform:translateY(18px);opacity:.52}}
+@media(max-width:1180px){
+ .burner-flame-stage{right:-21%;width:78%;opacity:.5}
+ .hero-logo-card{width:min(560px,68%)}
+}
+@media(max-width:780px){
+ .header{height:70px}
+ .site-brand-logo{width:133px}
+ .hero{min-height:860px;padding:125px 0 95px;align-items:flex-start}
+ .hero-content{width:calc(100% - 36px);margin-top:15px}
+ .hero-logo-card{width:min(100%,520px);margin-top:20px}
+ .hero h1{font-size:clamp(35px,9vw,52px);margin-top:22px}
+ .hero-copy{font-size:15px;line-height:1.72}
+ .hero-actions{gap:9px}
+ .hero-actions .button{min-height:48px;padding:0 13px;font-size:12px}
+ .burner-flame-stage{width:110%;height:42%;right:-37%;top:59%;opacity:.39}
+ .flame-caption{display:none}
+ .footer{grid-template-columns:1fr}
+ .footer-official-logo{width:min(250px,85%)}
+}
+@media(prefers-reduced-motion:reduce){
+ .flame-movement,.flame-outer,.flame-mid,.flame-glow,.burner-halo,.flame-ribbon{animation:none!important}
+}
