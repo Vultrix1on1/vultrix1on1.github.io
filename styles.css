@@ -418,330 +418,83 @@ button,input,textarea,select{font:inherit}
 }
 
 
-/* Vultrix official identity + refined combustion atmosphere, Nov 2026 */
-.site-brand-logo{display:block;width:157px;height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff;border:1px solid rgba(255,255,255,.18);padding:1px}
-.footer-official-logo{display:block;width:min(260px,100%);height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff}
+
+/* NOV 13: Revert animated burner; premium static industrial-photography hero.
+   Official logo artwork unchanged in header/footer pending matching dark lockup. */
+.site-brand-logo{
+  display:block;width:157px;height:auto;aspect-ratio:2/1;object-fit:contain;
+  background:#fff;border:1px solid rgba(255,255,255,.12);padding:1px
+}
+.footer-official-logo{
+  display:block;width:min(260px,100%);height:auto;aspect-ratio:2/1;
+  object-fit:contain;background:#fff
+}
 .footer{grid-template-columns:1fr 1fr}
-.hero{min-height:880px;padding-top:156px;padding-bottom:95px;align-items:center;isolation:isolate}
-.hero-bg img{filter:saturate(.22) brightness(.33) contrast(1.2)}
-.hero-overlay{background:linear-gradient(90deg,rgba(4,7,12,.99) 0%,rgba(4,7,12,.96) 34%,rgba(3,9,20,.5) 82%),linear-gradient(0deg,#090b0d 0%,transparent 30%)}
-.hero-content{max-width:var(--max);z-index:4}
-.hero .eyebrow{color:#9fb5cc;font-size:10px;letter-spacing:.22em}
-.hero-logo-card{margin-top:24px;background:#fdfdfd;padding:3px;width:min(560px,60%);border:1px solid rgba(255,255,255,.32);box-shadow:0 22px 85px rgba(1,7,19,.7),0 0 0 1px rgba(49,133,209,.22)}
-.hero-logo-card img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:contain}
-.hero h1{font-size:clamp(37px,4.4vw,64px);max-width:700px;margin:28px 0 18px;line-height:1.06;letter-spacing:-.048em}
-.hero h1 span{color:#bdc8d8;font-weight:600}
-.hero-copy{max-width:650px;color:#c0cbd7;font-size:16px;line-height:1.8}
-.hero-actions{margin-top:29px}
-
-/* Ambient combustion: diffused gas light and quiet thermal distortion.
-   There is no outlined flame shape, rotating part, or bright cartoon nozzle. */
-.thermal-stage{
-  pointer-events:none;position:absolute;right:0;top:0;bottom:0;
-  width:min(64vw,950px);z-index:2;overflow:hidden;isolation:isolate;
-  opacity:.78;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 91%,transparent 100%);
-  mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 91%,transparent 100%)
+.hero{
+  min-height:clamp(610px,100svh,880px);padding:112px 0 58px;
+  display:flex;align-items:center;isolation:isolate
 }
-.thermal-filters{position:absolute;width:0;height:0;overflow:hidden}
-.thermal-blue-atmosphere{
-  position:absolute;left:12%;top:30%;width:63%;height:42%;
-  background:radial-gradient(ellipse at 16% 52%,rgba(68,194,255,.31) 0%,rgba(17,111,211,.16) 28%,rgba(21,89,173,.06) 48%,transparent 74%);
-  filter:blur(31px);mix-blend-mode:screen;
-  animation:thermal-breathe 8.5s ease-in-out infinite alternate
+.hero-bg img{
+  height:100%;width:100%;object-fit:cover;object-position:center 48%;
+  filter:saturate(.55) brightness(.6) contrast(1.1)
 }
-.thermal-amber-atmosphere{
-  position:absolute;left:36%;top:15%;width:72%;height:67%;
+.hero-overlay{
   background:
-    radial-gradient(ellipse at 55% 49%,rgba(225,116,43,.16) 0%,rgba(159,76,28,.085) 36%,transparent 69%),
-    radial-gradient(ellipse at 74% 57%,rgba(255,169,85,.06) 0%,transparent 58%);
-  filter:blur(45px);mix-blend-mode:screen;
-  animation:thermal-warmth 10s ease-in-out infinite alternate
+    linear-gradient(90deg,rgba(4,6,10,.98) 0%,rgba(6,9,14,.92) 37%,rgba(6,9,14,.43) 74%,rgba(4,6,10,.37) 100%),
+    linear-gradient(0deg,#090b0d 0%,transparent 27%,rgba(0,0,0,.08) 100%)
 }
-.thermal-stream{
-  position:absolute;left:17%;top:42%;width:79%;height:17%;
-  background:
-    radial-gradient(ellipse at 8% 50%,rgba(187,246,255,.57) 0%,rgba(42,171,247,.37) 13%,rgba(25,102,174,.17) 30%,transparent 59%),
-    linear-gradient(90deg,rgba(68,183,255,.28),rgba(38,132,231,.12) 22%,rgba(197,99,36,.115) 58%,rgba(226,145,79,.07) 75%,transparent 100%);
-  -webkit-mask-image:radial-gradient(ellipse at 35% 50%,#000 2%,rgba(0,0,0,.8) 19%,rgba(0,0,0,.3) 50%,transparent 78%);
-  mask-image:radial-gradient(ellipse at 35% 50%,#000 2%,rgba(0,0,0,.8) 19%,rgba(0,0,0,.3) 50%,transparent 78%);
-  filter:blur(21px);
-  transform-origin:8% 50%;
-  animation:thermal-flow 7s ease-in-out infinite alternate;
-  mix-blend-mode:screen;
+.hero-content{
+  width:min(var(--max),calc(100% - 60px));
+  max-width:var(--max);margin:0 auto;position:relative;z-index:4
 }
-.thermal-refraction{
-  position:absolute;left:22%;top:27%;width:82%;height:47%;
-  filter:url(#thermal-refraction-filter) blur(13px);
-  mix-blend-mode:screen;
-  opacity:.38;
-  -webkit-mask-image:radial-gradient(ellipse at 42% 50%,#000 3%,rgba(0,0,0,.8) 32%,transparent 82%);
-  mask-image:radial-gradient(ellipse at 42% 50%,#000 3%,rgba(0,0,0,.8) 32%,transparent 82%);
+.hero .eyebrow{font-size:10px;letter-spacing:.2em;color:#b4bdc8}
+.hero-wordmark{display:flex;flex-direction:column;align-items:flex-start;margin-top:20px;line-height:1}
+.hero-wordmark strong{
+  display:block;font-family:"Manrope",sans-serif;
+  font-size:clamp(62px,7vw,112px);font-weight:800;letter-spacing:-.058em;
+  color:#f2f4f5;text-shadow:0 8px 32px rgba(0,0,0,.45)
 }
-.thermal-refraction-a{
-  background:
-    radial-gradient(ellipse at 18% 46%,rgba(80,169,226,.24),transparent 48%),
-    radial-gradient(ellipse at 67% 44%,rgba(227,119,46,.22),transparent 58%);
-  animation:thermal-rise-a 11s ease-in-out infinite alternate;
+.hero-wordmark span{
+  display:block;margin-top:8px;font-family:"Manrope",sans-serif;
+  font-size:clamp(16px,1.55vw,22px);font-weight:600;letter-spacing:.55em;
+  color:#b8c6d2;padding-left:6px
 }
-.thermal-refraction-b{
-  opacity:.28;left:29%;top:33%;
-  background:
-    radial-gradient(ellipse at 22% 60%,rgba(161,207,251,.19),transparent 47%),
-    radial-gradient(ellipse at 76% 44%,rgba(212,100,31,.19),transparent 60%);
-  animation:thermal-rise-b 12s ease-in-out infinite alternate-reverse;
+.hero h1{
+  font-family:"Manrope",sans-serif;font-size:clamp(30px,3vw,43px);
+  line-height:1.13;max-width:750px;margin:34px 0 16px;
+  letter-spacing:-.036em
 }
-.thermal-core{
-  position:absolute;left:19%;top:49.3%;width:22%;height:1.8%;
-  transform:translateY(-50%);
-  background:radial-gradient(ellipse at 3% 50%,rgba(205,248,255,.86),rgba(99,211,255,.53) 21%,rgba(25,124,221,.18) 48%,transparent 82%);
-  border-radius:100%;
-  filter:blur(7px);mix-blend-mode:screen;
-  box-shadow:0 0 36px 12px rgba(6,112,228,.10);
-  animation:thermal-core-pulse 6s ease-in-out infinite alternate;
+.hero h1 span{color:#b3bec7;font-weight:600}
+.hero-copy{
+  font-size:15.5px;line-height:1.68;max-width:680px;
+  margin:0;color:#c5cdd3
 }
-/* Dark machined aperture rather than a drawn burner flame */
-.thermal-nozzle{
-  position:absolute;left:14%;top:49%;width:100px;height:100px;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 52% 49%,#070d15 0 25%,#101c2a 31%,#263543 37%,#0c1520 43%,#7d8a95 46%,#27313c 49%,#0a111a 59%,transparent 69%);
-  opacity:.69;
-  filter:drop-shadow(0 0 21px rgba(11,96,182,.20));
-}
-.thermal-nozzle:before{
-  content:"";position:absolute;z-index:-1;right:47%;top:15%;
-  width:145px;height:70%;border-radius:6px;
-  background:linear-gradient(180deg,rgba(115,137,153,.28),rgba(28,42,53,.38) 28%,rgba(4,9,17,.7) 72%,rgba(96,111,124,.18));
-  box-shadow:0 0 0 1px rgba(159,187,204,.08);
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 62%);
-  mask-image:linear-gradient(90deg,transparent,#000 62%);
-}
-.thermal-nozzle:after{
-  content:"";position:absolute;inset:36% 36%;border-radius:50%;
-  background:radial-gradient(circle,rgba(127,229,255,.75),rgba(20,151,250,.3) 45%,transparent 75%);
-  filter:blur(7px);
-}
-.thermal-lowlight{
-  position:absolute;inset:0;
-  background:linear-gradient(0deg,#090b0d 0%,transparent 15%,transparent 84%,rgba(5,7,10,.45) 100%);
-}
-.thermal-label{
-  position:absolute;right:7%;bottom:14%;font-size:9px;
-  letter-spacing:.2em;color:#8395a7;opacity:.68;
-  font-family:"Manrope",sans-serif;font-weight:600
-}
-@keyframes thermal-breathe{
-  0%{opacity:.68;transform:scale(1) translateY(0)}
-  100%{opacity:.94;transform:scale(1.045) translateY(-8px)}
-}
-@keyframes thermal-warmth{
-  0%{opacity:.52;transform:translate(0,5px) scale(.97)}
-  100%{opacity:.82;transform:translate(13px,-8px) scale(1.06)}
-}
-@keyframes thermal-flow{
-  0%{opacity:.62;transform:scaleX(.96) scaleY(.95)}
-  100%{opacity:.9;transform:scaleX(1.05) scaleY(1.09)}
-}
-@keyframes thermal-rise-a{
-  0%{transform:translate(0,11px) skewY(.8deg);opacity:.28}
-  100%{transform:translate(16px,-13px) skewY(-.8deg);opacity:.5}
-}
-@keyframes thermal-rise-b{
-  0%{transform:translate(10px,10px);opacity:.2}
-  100%{transform:translate(-4px,-12px);opacity:.39}
-}
-@keyframes thermal-core-pulse{
-  from{opacity:.53;transform:translateY(-50%) scaleX(.9)}
-  to{opacity:.9;transform:translateY(-50%) scaleX(1.12)}
-}
-
-@media(max-width:1180px){
-  .thermal-stage{right:-15%;width:88vw;opacity:.51}
-  .hero-logo-card{width:min(560px,68%)}
+.hero-actions{margin-top:25px}
+.hero-actions .button{min-height:48px}
+@media (min-width:781px) and (max-height:740px){
+  .hero{min-height:100svh;padding:92px 0 24px}
+  .hero-wordmark{margin-top:10px}
+  .hero-wordmark strong{font-size:clamp(50px,6vw,86px)}
+  .hero h1{font-size:clamp(28px,2.8vw,37px);margin:22px 0 12px}
+  .hero-copy{font-size:14px;line-height:1.54;max-width:650px}
+  .hero-actions{margin-top:18px}
+  .hero-actions .button{min-height:43px}
 }
 @media(max-width:780px){
   .header{height:70px}
   .site-brand-logo{width:133px}
-  .hero{min-height:860px;padding:125px 0 95px;align-items:flex-start}
-  .hero-content{width:calc(100% - 36px);margin-top:15px}
-  .hero-logo-card{width:min(100%,520px);margin-top:20px}
-  .hero h1{font-size:clamp(35px,9vw,52px);margin-top:22px}
-  .hero-copy{font-size:15px;line-height:1.72}
-  .hero-actions{gap:9px}
+  .hero{min-height:auto;padding:112px 0 90px;align-items:flex-start}
+  .hero-content{width:calc(100% - 36px)}
+  .hero-wordmark{margin-top:24px}
+  .hero-wordmark strong{font-size:clamp(55px,13vw,82px)}
+  .hero-wordmark span{font-size:clamp(14px,3.7vw,19px);letter-spacing:.47em}
+  .hero h1{font-size:clamp(29px,7.5vw,39px);margin:28px 0 14px}
+  .hero-copy{font-size:15px;line-height:1.7}
+  .hero-actions{margin-top:24px;gap:10px}
   .hero-actions .button{min-height:48px;padding:0 13px;font-size:12px}
-  .thermal-stage{
-    top:52%;bottom:0;right:-33%;width:126vw;height:48%;opacity:.33;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 90%);
-    mask-image:linear-gradient(90deg,transparent,#000 30%,#000 90%)
+  .hero-overlay{
+    background:linear-gradient(90deg,rgba(4,6,10,.95),rgba(4,6,10,.78)),
+               linear-gradient(0deg,#090b0d,transparent 26%)
   }
-  .thermal-label{display:none}
   .footer{grid-template-columns:1fr}
-  .footer-official-logo{width:min(250px,85%)}
-}
-@media(prefers-reduced-motion:reduce){
-  .thermal-stage *, .thermal-stage *::before, .thermal-stage *::after{
-    animation:none!important;transition:none!important
-  }
-}
-
-
-/* VULTRIX HERO V2: compact above-the-fold layout and a visible controlled-burn jet.
-   Keep the official artwork intact; don't duplicate oversized white space. */
-.hero{
-  min-height:clamp(600px,100svh,900px);
-  padding:102px 0 32px;
-  display:flex;
-  align-items:center
-}
-.hero-content{width:min(var(--max),calc(100% - 60px));}
-.hero .eyebrow{font-size:10px;letter-spacing:.20em;color:#b7cce0}
-.hero-logo-card{
-  width:300px;max-width:42vw;margin-top:15px;padding:2px;
-  box-shadow:0 12px 38px rgba(0,0,0,.42),0 0 0 1px rgba(74,132,187,.17);
-}
-.hero-logo-card img{width:100%;height:auto;aspect-ratio:2/1;object-fit:contain}
-.hero h1{
-  font-size:clamp(39px,3.8vw,58px);
-  line-height:1.035;max-width:670px;
-  margin:18px 0 12px;
-}
-.hero-copy{
-  font-size:14.5px;
-  line-height:1.58;
-  max-width:610px;
-  margin:0;
-  color:#d5dde5;
-}
-.hero-actions{margin-top:20px}
-.hero-actions .button{min-height:48px}
-
-/* The right half is intentionally much more visible than the previous ambient wash. */
-.thermal-stage{
-  width:min(60vw,1020px);
-  opacity:1;
-  overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 10%,#000 97%,transparent 100%);
-  mask-image:linear-gradient(90deg,transparent 0%,#000 10%,#000 97%,transparent 100%)
-}
-.thermal-blue-atmosphere{
-  left:8%;top:22%;width:85%;height:57%;
-  background:radial-gradient(ellipse at 27% 52%,
-      rgba(48,178,255,.38) 0%,rgba(22,124,240,.24) 21%,
-      rgba(28,109,210,.11) 49%,transparent 75%);
-  filter:blur(22px);
-}
-.thermal-amber-atmosphere{
-  left:39%;top:18%;width:70%;height:67%;
-  background:
-    radial-gradient(ellipse at 43% 50%,rgba(255,135,49,.31) 0%,rgba(231,103,31,.16) 32%,transparent 74%),
-    radial-gradient(ellipse at 75% 42%,rgba(255,181,79,.22) 0%,transparent 60%);
-  filter:blur(36px)
-}
-.thermal-stream{
-  left:20%;top:39%;width:78%;height:22%;
-  background:
-    radial-gradient(ellipse at 5% 50%,rgba(205,250,255,.8),rgba(82,210,255,.65) 11%,rgba(21,119,238,.41) 28%,transparent 65%),
-    linear-gradient(90deg,rgba(44,173,255,.4) 3%,rgba(69,148,239,.27) 25%,rgba(232,121,44,.32) 56%,rgba(244,170,77,.18) 82%,transparent);
-  -webkit-mask-image:radial-gradient(ellipse at 37% 50%,#000 2%,rgba(0,0,0,.92) 22%,rgba(0,0,0,.48) 53%,transparent 82%);
-  mask-image:radial-gradient(ellipse at 37% 50%,#000 2%,rgba(0,0,0,.92) 22%,rgba(0,0,0,.48) 53%,transparent 82%);
-  filter:blur(15px);
-}
-.thermal-jet{
-  position:absolute;
-  left:21%;top:44.5%;width:73%;height:11%;
-  transform-origin:0 50%;
-  border-radius:50%;
-  background:
-    radial-gradient(ellipse at 3% 50%,
-       rgba(205,251,255,.95) 0%,rgba(83,218,255,.86) 10%,
-       rgba(16,118,247,.5) 31%,rgba(234,123,46,.45) 58%,
-       rgba(253,180,83,.20) 74%,transparent 99%);
-  filter:blur(10px);mix-blend-mode:screen;
-  -webkit-mask-image:radial-gradient(ellipse at 38% 50%,#000 0%,rgba(0,0,0,.94) 28%,rgba(0,0,0,.42) 65%,transparent 98%);
-  mask-image:radial-gradient(ellipse at 38% 50%,#000 0%,rgba(0,0,0,.94) 28%,rgba(0,0,0,.42) 65%,transparent 98%);
-  animation:thermal-flow 5.6s ease-in-out infinite alternate;
-}
-.thermal-jet-core{
-  position:absolute;
-  left:22%;top:48.15%;
-  width:50%;height:3%;
-  border-radius:100%;
-  background:linear-gradient(90deg,
-    rgba(217,251,255,.92),rgba(103,228,255,.76) 8%,
-    rgba(39,156,255,.6) 23%,rgba(46,114,213,.32) 54%,
-    rgba(240,137,73,.1) 86%,transparent);
-  filter:blur(5px);mix-blend-mode:screen;
-  transform-origin:0 50%;
-  animation:thermal-core-pulse 5s ease-in-out infinite alternate;
-}
-.thermal-core{
-  left:20%;top:49.4%;width:34%;height:3.5%;
-  filter:blur(8px);
-  background:radial-gradient(ellipse at 8% 50%,rgba(216,250,255,1) 0%,rgba(111,224,255,.87) 20%,rgba(36,129,255,.4) 51%,transparent 87%);
-  box-shadow:0 0 42px 17px rgba(13,107,234,.26);
-}
-.thermal-nozzle{
-  left:19.5%;top:49%;width:146px;height:146px;
-  opacity:1;
-  background:radial-gradient(circle at 54% 50%,
-    #09121a 0 24%,#172637 29%,#304456 35%,
-    #0a141f 40%,#9babb8 44%,#2e3d4a 48%,
-    #101b27 56%,#647481 61%,#15202a 66%,transparent 72%);
-  filter:drop-shadow(0 11px 15px rgba(0,0,0,.65)) drop-shadow(0 0 19px rgba(9,97,198,.35))
-}
-.thermal-nozzle:before{
-  width:202px;height:70%;right:49%;top:15%;
-  background:linear-gradient(180deg,rgba(167,188,199,.6),rgba(51,72,88,.5) 18%,rgba(11,20,30,.9) 58%,rgba(87,111,130,.44));
-}
-.thermal-nozzle:after{inset:34% 34%;filter:blur(5px)}
-.thermal-refraction{opacity:.64}
-.thermal-lowlight{background:linear-gradient(0deg,#090b0d 0%,transparent 11%,transparent 87%,rgba(5,7,10,.2) 100%)}
-.thermal-label{bottom:12%;right:7%;opacity:.82;color:#b9cadb}
-.hero-bg img{filter:saturate(.26) brightness(.24) contrast(1.13)}
-.hero-overlay{
-  background:
-    linear-gradient(90deg,rgba(4,7,12,.97) 0%,rgba(4,7,12,.95) 34%,rgba(3,9,20,.35) 75%,rgba(3,8,16,.28)),
-    linear-gradient(0deg,#090b0d 0%,transparent 24%);
-}
-
-/* Short laptop viewport / common 125% browser zoom */
-@media(min-width:781px) and (max-height:740px){
-  .hero{min-height:100svh;padding-top:91px;padding-bottom:18px}
-  .hero-logo-card{width:270px;margin-top:10px}
-  .hero h1{font-size:clamp(36px,3.5vw,50px);margin:12px 0 9px}
-  .hero-copy{font-size:13.6px;line-height:1.48;max-width:580px}
-  .hero-actions{margin-top:15px}
-  .hero-actions .button{min-height:44px}
-  .thermal-nozzle{width:118px;height:118px}
-}
-
-/* Narrow laptop / tablet: don't bury controls or overlap text */
-@media(min-width:781px) and (max-width:1180px){
-  .hero-content{width:calc(100% - 50px)}
-  .hero-logo-card{width:272px}
-  .hero h1{max-width:585px}
-  .hero-copy{max-width:530px}
-  .thermal-stage{width:65vw;right:-8%;opacity:.83}
-}
-@media(max-width:780px){
-  .hero{min-height:auto;padding:105px 0 78px;align-items:flex-start}
-  .hero-content{width:calc(100% - 36px);margin-top:0}
-  .hero-logo-card{width:min(270px,72vw);max-width:none;margin-top:17px}
-  .hero h1{font-size:clamp(35px,9.2vw,46px);margin:20px 0 13px;line-height:1.08}
-  .hero-copy{font-size:14.5px;line-height:1.65;max-width:100%}
-  .hero-actions{margin-top:24px}
-  .hero-actions .button{min-height:47px;padding:0 12px;font-size:12px}
-  .thermal-stage{
-    top:8%;right:-61%;width:135vw;height:70%;
-    opacity:.25;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 45%,#000 95%);
-    mask-image:linear-gradient(90deg,transparent,#000 45%,#000 95%)
-  }
-  .thermal-label{display:none}
-  .thermal-nozzle{width:108px;height:108px}
-}
-@media(prefers-reduced-motion:reduce){
-  .thermal-jet,.thermal-jet-core{animation:none!important}
 }
