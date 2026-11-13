@@ -418,13 +418,13 @@ button,input,textarea,select{font:inherit}
 }
 
 
-/* Official Vultrix Global brand and burner-led hero — Nov 2026 */
+/* Vultrix official identity + refined combustion atmosphere, Nov 2026 */
 .site-brand-logo{display:block;width:157px;height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff;border:1px solid rgba(255,255,255,.18);padding:1px}
 .footer-official-logo{display:block;width:min(260px,100%);height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff}
 .footer{grid-template-columns:1fr 1fr}
 .hero{min-height:880px;padding-top:156px;padding-bottom:95px;align-items:center;isolation:isolate}
 .hero-bg img{filter:saturate(.22) brightness(.33) contrast(1.2)}
-.hero-overlay{background:linear-gradient(90deg,rgba(4,7,12,.99),rgba(4,7,12,.93) 37%,rgba(3,9,20,.48) 82%),linear-gradient(0deg,#090b0d,transparent 30%)}
+.hero-overlay{background:linear-gradient(90deg,rgba(4,7,12,.99) 0%,rgba(4,7,12,.96) 34%,rgba(3,9,20,.5) 82%),linear-gradient(0deg,#090b0d 0%,transparent 30%)}
 .hero-content{max-width:var(--max);z-index:4}
 .hero .eyebrow{color:#9fb5cc;font-size:10px;letter-spacing:.22em}
 .hero-logo-card{margin-top:24px;background:#fdfdfd;padding:3px;width:min(560px,60%);border:1px solid rgba(255,255,255,.32);box-shadow:0 22px 85px rgba(1,7,19,.7),0 0 0 1px rgba(49,133,209,.22)}
@@ -433,37 +433,155 @@ button,input,textarea,select{font:inherit}
 .hero h1 span{color:#bdc8d8;font-weight:600}
 .hero-copy{max-width:650px;color:#c0cbd7;font-size:16px;line-height:1.8}
 .hero-actions{margin-top:29px}
-.burner-flame-stage{pointer-events:none;position:absolute;right:-7%;top:11%;height:71%;width:min(880px,62%);z-index:2;opacity:.92;filter:drop-shadow(0 0 24px rgba(4,96,204,.26))}
-.burner-flame-art{height:100%;width:100%;overflow:visible}
-.flame-caption{position:absolute;bottom:0;right:9%;font-size:9px;letter-spacing:.19em;color:#90a7be}
-.flame-movement{transform-origin:230px 322px;animation:flame-dance 3s ease-in-out infinite alternate}
-.flame-outer{animation:flame-flicker 1.65s ease-in-out infinite alternate}
-.flame-mid{animation:flame-flicker 1.2s ease-in-out infinite alternate-reverse}
-.flame-glow,.burner-halo{animation:flame-glow-pulse 2s ease-in-out infinite alternate}
-.flame-ribbon{animation:ribbon-drift 2.4s ease-in-out infinite alternate}
-@keyframes flame-dance{0%{transform:scaleX(.91) scaleY(.94)}48%{transform:scaleX(1.02) scaleY(1.05)}100%{transform:scaleX(1.06) scaleY(.90)}}
-@keyframes flame-flicker{0%{opacity:.72}45%{opacity:1}100%{opacity:.86}}
-@keyframes flame-glow-pulse{from{opacity:.45}to{opacity:.95}}
-@keyframes ribbon-drift{from{transform:translateY(-20px);opacity:.22}to{transform:translateY(18px);opacity:.52}}
+
+/* Ambient combustion: diffused gas light and quiet thermal distortion.
+   There is no outlined flame shape, rotating part, or bright cartoon nozzle. */
+.thermal-stage{
+  pointer-events:none;position:absolute;right:0;top:0;bottom:0;
+  width:min(64vw,950px);z-index:2;overflow:hidden;isolation:isolate;
+  opacity:.78;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 91%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 91%,transparent 100%)
+}
+.thermal-filters{position:absolute;width:0;height:0;overflow:hidden}
+.thermal-blue-atmosphere{
+  position:absolute;left:12%;top:30%;width:63%;height:42%;
+  background:radial-gradient(ellipse at 16% 52%,rgba(68,194,255,.31) 0%,rgba(17,111,211,.16) 28%,rgba(21,89,173,.06) 48%,transparent 74%);
+  filter:blur(31px);mix-blend-mode:screen;
+  animation:thermal-breathe 8.5s ease-in-out infinite alternate
+}
+.thermal-amber-atmosphere{
+  position:absolute;left:36%;top:15%;width:72%;height:67%;
+  background:
+    radial-gradient(ellipse at 55% 49%,rgba(225,116,43,.16) 0%,rgba(159,76,28,.085) 36%,transparent 69%),
+    radial-gradient(ellipse at 74% 57%,rgba(255,169,85,.06) 0%,transparent 58%);
+  filter:blur(45px);mix-blend-mode:screen;
+  animation:thermal-warmth 10s ease-in-out infinite alternate
+}
+.thermal-stream{
+  position:absolute;left:17%;top:42%;width:79%;height:17%;
+  background:
+    radial-gradient(ellipse at 8% 50%,rgba(187,246,255,.57) 0%,rgba(42,171,247,.37) 13%,rgba(25,102,174,.17) 30%,transparent 59%),
+    linear-gradient(90deg,rgba(68,183,255,.28),rgba(38,132,231,.12) 22%,rgba(197,99,36,.115) 58%,rgba(226,145,79,.07) 75%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse at 35% 50%,#000 2%,rgba(0,0,0,.8) 19%,rgba(0,0,0,.3) 50%,transparent 78%);
+  mask-image:radial-gradient(ellipse at 35% 50%,#000 2%,rgba(0,0,0,.8) 19%,rgba(0,0,0,.3) 50%,transparent 78%);
+  filter:blur(21px);
+  transform-origin:8% 50%;
+  animation:thermal-flow 7s ease-in-out infinite alternate;
+  mix-blend-mode:screen;
+}
+.thermal-refraction{
+  position:absolute;left:22%;top:27%;width:82%;height:47%;
+  filter:url(#thermal-refraction-filter) blur(13px);
+  mix-blend-mode:screen;
+  opacity:.38;
+  -webkit-mask-image:radial-gradient(ellipse at 42% 50%,#000 3%,rgba(0,0,0,.8) 32%,transparent 82%);
+  mask-image:radial-gradient(ellipse at 42% 50%,#000 3%,rgba(0,0,0,.8) 32%,transparent 82%);
+}
+.thermal-refraction-a{
+  background:
+    radial-gradient(ellipse at 18% 46%,rgba(80,169,226,.24),transparent 48%),
+    radial-gradient(ellipse at 67% 44%,rgba(227,119,46,.22),transparent 58%);
+  animation:thermal-rise-a 11s ease-in-out infinite alternate;
+}
+.thermal-refraction-b{
+  opacity:.28;left:29%;top:33%;
+  background:
+    radial-gradient(ellipse at 22% 60%,rgba(161,207,251,.19),transparent 47%),
+    radial-gradient(ellipse at 76% 44%,rgba(212,100,31,.19),transparent 60%);
+  animation:thermal-rise-b 12s ease-in-out infinite alternate-reverse;
+}
+.thermal-core{
+  position:absolute;left:19%;top:49.3%;width:22%;height:1.8%;
+  transform:translateY(-50%);
+  background:radial-gradient(ellipse at 3% 50%,rgba(205,248,255,.86),rgba(99,211,255,.53) 21%,rgba(25,124,221,.18) 48%,transparent 82%);
+  border-radius:100%;
+  filter:blur(7px);mix-blend-mode:screen;
+  box-shadow:0 0 36px 12px rgba(6,112,228,.10);
+  animation:thermal-core-pulse 6s ease-in-out infinite alternate;
+}
+/* Dark machined aperture rather than a drawn burner flame */
+.thermal-nozzle{
+  position:absolute;left:14%;top:49%;width:100px;height:100px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 52% 49%,#070d15 0 25%,#101c2a 31%,#263543 37%,#0c1520 43%,#7d8a95 46%,#27313c 49%,#0a111a 59%,transparent 69%);
+  opacity:.69;
+  filter:drop-shadow(0 0 21px rgba(11,96,182,.20));
+}
+.thermal-nozzle:before{
+  content:"";position:absolute;z-index:-1;right:47%;top:15%;
+  width:145px;height:70%;border-radius:6px;
+  background:linear-gradient(180deg,rgba(115,137,153,.28),rgba(28,42,53,.38) 28%,rgba(4,9,17,.7) 72%,rgba(96,111,124,.18));
+  box-shadow:0 0 0 1px rgba(159,187,204,.08);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 62%);
+  mask-image:linear-gradient(90deg,transparent,#000 62%);
+}
+.thermal-nozzle:after{
+  content:"";position:absolute;inset:36% 36%;border-radius:50%;
+  background:radial-gradient(circle,rgba(127,229,255,.75),rgba(20,151,250,.3) 45%,transparent 75%);
+  filter:blur(7px);
+}
+.thermal-lowlight{
+  position:absolute;inset:0;
+  background:linear-gradient(0deg,#090b0d 0%,transparent 15%,transparent 84%,rgba(5,7,10,.45) 100%);
+}
+.thermal-label{
+  position:absolute;right:7%;bottom:14%;font-size:9px;
+  letter-spacing:.2em;color:#8395a7;opacity:.68;
+  font-family:"Manrope",sans-serif;font-weight:600
+}
+@keyframes thermal-breathe{
+  0%{opacity:.68;transform:scale(1) translateY(0)}
+  100%{opacity:.94;transform:scale(1.045) translateY(-8px)}
+}
+@keyframes thermal-warmth{
+  0%{opacity:.52;transform:translate(0,5px) scale(.97)}
+  100%{opacity:.82;transform:translate(13px,-8px) scale(1.06)}
+}
+@keyframes thermal-flow{
+  0%{opacity:.62;transform:scaleX(.96) scaleY(.95)}
+  100%{opacity:.9;transform:scaleX(1.05) scaleY(1.09)}
+}
+@keyframes thermal-rise-a{
+  0%{transform:translate(0,11px) skewY(.8deg);opacity:.28}
+  100%{transform:translate(16px,-13px) skewY(-.8deg);opacity:.5}
+}
+@keyframes thermal-rise-b{
+  0%{transform:translate(10px,10px);opacity:.2}
+  100%{transform:translate(-4px,-12px);opacity:.39}
+}
+@keyframes thermal-core-pulse{
+  from{opacity:.53;transform:translateY(-50%) scaleX(.9)}
+  to{opacity:.9;transform:translateY(-50%) scaleX(1.12)}
+}
+
 @media(max-width:1180px){
- .burner-flame-stage{right:-21%;width:78%;opacity:.5}
- .hero-logo-card{width:min(560px,68%)}
+  .thermal-stage{right:-15%;width:88vw;opacity:.51}
+  .hero-logo-card{width:min(560px,68%)}
 }
 @media(max-width:780px){
- .header{height:70px}
- .site-brand-logo{width:133px}
- .hero{min-height:860px;padding:125px 0 95px;align-items:flex-start}
- .hero-content{width:calc(100% - 36px);margin-top:15px}
- .hero-logo-card{width:min(100%,520px);margin-top:20px}
- .hero h1{font-size:clamp(35px,9vw,52px);margin-top:22px}
- .hero-copy{font-size:15px;line-height:1.72}
- .hero-actions{gap:9px}
- .hero-actions .button{min-height:48px;padding:0 13px;font-size:12px}
- .burner-flame-stage{width:110%;height:42%;right:-37%;top:59%;opacity:.39}
- .flame-caption{display:none}
- .footer{grid-template-columns:1fr}
- .footer-official-logo{width:min(250px,85%)}
+  .header{height:70px}
+  .site-brand-logo{width:133px}
+  .hero{min-height:860px;padding:125px 0 95px;align-items:flex-start}
+  .hero-content{width:calc(100% - 36px);margin-top:15px}
+  .hero-logo-card{width:min(100%,520px);margin-top:20px}
+  .hero h1{font-size:clamp(35px,9vw,52px);margin-top:22px}
+  .hero-copy{font-size:15px;line-height:1.72}
+  .hero-actions{gap:9px}
+  .hero-actions .button{min-height:48px;padding:0 13px;font-size:12px}
+  .thermal-stage{
+    top:52%;bottom:0;right:-33%;width:126vw;height:48%;opacity:.33;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 90%);
+    mask-image:linear-gradient(90deg,transparent,#000 30%,#000 90%)
+  }
+  .thermal-label{display:none}
+  .footer{grid-template-columns:1fr}
+  .footer-official-logo{width:min(250px,85%)}
 }
 @media(prefers-reduced-motion:reduce){
- .flame-movement,.flame-outer,.flame-mid,.flame-glow,.burner-halo,.flame-ribbon{animation:none!important}
+  .thermal-stage *, .thermal-stage *::before, .thermal-stage *::after{
+    animation:none!important;transition:none!important
+  }
 }
