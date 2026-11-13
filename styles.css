@@ -419,7 +419,7 @@ button,input,textarea,select{font:inherit}
 
 
 /* Official Vultrix Global brand and burner-led hero — Nov 2026 */
-.site-brand-logo{display:block;width:177px;height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff;border:1px solid rgba(255,255,255,.18);padding:1px}
+.site-brand-logo{display:block;width:157px;height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff;border:1px solid rgba(255,255,255,.18);padding:1px}
 .footer-official-logo{display:block;width:min(260px,100%);height:auto;aspect-ratio:2/1;object-fit:contain;background:#fff}
 .footer{grid-template-columns:1fr 1fr}
 .hero{min-height:880px;padding-top:156px;padding-bottom:95px;align-items:center;isolation:isolate}
