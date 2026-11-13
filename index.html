@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vultrix Global | Engineering & Industrial Solutions</title>
-  <meta name="description" content="Industrial engineering, furnace & combustion solutions, erection and commissioning, custom machining, fabrication and project execution support." />
+  <meta name="description" content="Vultrix Global: industrial furnace sourcing, erection and commissioning, furnace shutdown and revamping, combustion engineering, fabrication, machining, foundry, piping, electrical, instrumentation and automation." />
   <meta name="theme-color" content="#090b0d" />
   <meta property="og:title" content="Vultrix Global | Engineering & Industrial Solutions" />
   <meta property="og:description" content="From plant challenge to engineered solution — technical consultancy, furnace & combustion systems, project execution, machining and fabrication." />
@@ -22,14 +22,7 @@
 
   <header class="header">
     <a href="#top" class="brand" aria-label="Vultrix Global home">
-      <svg class="brand-symbol" viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M9 11h13l10 31L42 11h13L38 54H26L9 11Z"/>
-        <path class="cut" d="M26 19h12l-6 19-6-19Z"/>
-      </svg>
-      <span class="brand-text">
-        <strong>VULTRIX GLOBAL</strong>
-        <small>ENGINEERING & INDUSTRIAL SOLUTIONS</small>
-      </span>
+      <img class="site-brand-logo" src="assets/vultrix-global-official.webp" alt="Vultrix Global Engineering and Industrial Solutions logo" />
     </a>
 
     <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
@@ -46,54 +39,64 @@
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero-bg">
-        <img src="assets/horizontal-boring.webp" alt="Heavy industrial machining capability" />
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/horizontal-boring.webp" alt="" />
         <div class="hero-overlay"></div>
       </div>
-
+      <div class="burner-flame-stage" aria-hidden="true">
+        <svg class="burner-flame-art" viewBox="0 0 960 660" role="presentation">
+          <defs>
+            <linearGradient id="furnace-flame-outer" x1="0" y1="0" x2="1" y2=".3">
+              <stop offset="0" stop-color="#00a8ff"/><stop offset=".23" stop-color="#1376ff"/><stop offset=".58" stop-color="#f08a18"/><stop offset="1" stop-color="#ffcf65" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="furnace-flame-inner" x1="0" y1="0" x2="1" y2=".3">
+              <stop offset="0" stop-color="#93f9ff"/><stop offset=".22" stop-color="#35c9ff"/><stop offset=".55" stop-color="#ffbb61"/><stop offset="1" stop-color="#ffe5ad" stop-opacity="0"/>
+            </linearGradient>
+            <radialGradient id="furnace-halo"><stop offset="0" stop-color="#168cfc" stop-opacity=".53"/><stop offset=".5" stop-color="#e98418" stop-opacity=".13"/><stop offset="1" stop-color="#f5a542" stop-opacity="0"/></radialGradient>
+            <linearGradient id="burner-metal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#677a88"/><stop offset=".37" stop-color="#a7b3c0"/><stop offset=".6" stop-color="#263746"/><stop offset="1" stop-color="#090f19"/></linearGradient>
+            <filter id="flame-soft-glow"><feGaussianBlur stdDeviation="17"/></filter>
+          </defs>
+          <ellipse cx="590" cy="330" rx="365" ry="208" fill="url(#furnace-halo)" class="burner-halo" />
+          <g class="flame-movement">
+            <path class="flame-glow" d="M205 322 C285 226 406 172 541 230 C670 291 803 177 939 298 C804 323 711 423 558 388 C413 357 323 418 205 322Z" fill="url(#furnace-flame-outer)" filter="url(#flame-soft-glow)" opacity=".8"/>
+            <path class="flame-outer" d="M198 325 C295 253 363 216 505 242 C649 261 785 207 949 295 C802 299 751 397 589 391 C439 378 320 401 198 325Z" fill="url(#furnace-flame-outer)" opacity=".87"/>
+            <path class="flame-mid" d="M201 321 C308 283 388 259 527 281 C657 300 749 269 863 300 C750 331 676 365 527 357 C376 350 310 361 201 321Z" fill="url(#furnace-flame-inner)" opacity=".85"/>
+            <path class="flame-core" d="M201 323 C296 309 386 304 517 315 C603 325 686 316 768 325 C639 339 566 346 461 340 C326 331 269 336 201 323Z" fill="#cefaff" opacity=".9"/>
+            <path class="flame-ribbon" d="M248 288 C411 198 561 202 664 239 C774 277 856 238 925 253" fill="none" stroke="#ffb35b" stroke-width="15" stroke-linecap="round" opacity=".3"/>
+          </g>
+          <g class="burner-assembly">
+            <rect x="88" y="244" width="133" height="158" rx="10" fill="url(#burner-metal)" stroke="#526374" stroke-width="4"/>
+            <rect x="142" y="272" width="123" height="101" rx="13" fill="#0d1e31" stroke="#6b8899" stroke-width="8"/>
+            <ellipse cx="252" cy="322" rx="26" ry="54" fill="#152536" stroke="#93afc7" stroke-width="8"/>
+            <ellipse cx="261" cy="322" rx="15" ry="40" fill="#138ad2"/>
+            <rect x="54" y="264" width="55" height="116" rx="7" fill="url(#burner-metal)" stroke="#536574" stroke-width="4"/>
+            <path d="M84 244v-56h58v56" fill="none" stroke="#405466" stroke-width="21" stroke-linejoin="round"/>
+            <path d="M78 399v36h93v-36" fill="none" stroke="#607788" stroke-width="12"/>
+            <path d="M95 258h102M95 386h102" stroke="#c9d4da" stroke-opacity=".42" stroke-width="5"/>
+          </g>
+        </svg>
+        <span class="flame-caption">INDUSTRIAL BURNER • COMBUSTION ENGINEERING</span>
+      </div>
       <div class="hero-content">
-        <div class="eyebrow reveal">ENGINEERING • PROJECT EXECUTION • MANUFACTURING COORDINATION</div>
-        <h1 class="reveal">
-          Bring us the industrial problem.<br>
-          <span>We’ll work out how to solve it.</span>
-        </h1>
+        <div class="eyebrow reveal">INDUSTRIAL FURNACES • COMBUSTION • ENGINEERING SOLUTIONS</div>
+        <div class="hero-logo-card reveal">
+          <img src="assets/vultrix-global-official.webp" alt="Vultrix Global — Engineering and Industrial Solutions, official silver-blue globe and V emblem with HB mark" decoding="async" fetchpriority="high" />
+        </div>
+        <h1 id="hero-heading" class="reveal">Industrial solutions.<br><span>Engineered around you.</span></h1>
         <p class="hero-copy reveal">
-          Vultrix Global gives industrial buyers one professional point of coordination for engineering,
-          technical review, furnace and combustion requirements, project execution and custom manufacturing.
-          We combine practical experience with specialist execution capability to move requirements from
-          initial enquiry to an engineered solution.
+          From sourcing the right industrial furnace to revamping, fabrication, combustion tuning,
+          electrical and automation work, Vultrix Global brings engineering guidance,
+          qualified execution partners and project coordination together.
         </p>
-
         <div class="hero-actions reveal">
-          <a href="#rfq" class="button button-primary">Request a Quote <span>↗</span></a>
-          <a href="#why" class="button button-ghost">Why Vultrix</a>
-        </div>
-
-
-      </div>
-
-      <div class="hero-side reveal">
-        <div class="hero-mini-card">
-          <span>CLIENT EXPERIENCE</span>
-          <b>One accountable front door</b>
-          <small>Requirement capture • technical review • quotation • execution follow-up</small>
-        </div>
-        <div class="hero-mini-card">
-          <span>EXECUTION MODEL</span>
-          <b>Engineering backed by specialist capability</b>
-          <small>Machining • fabrication • site execution • commissioning</small>
+          <a href="#rfq" class="button button-primary">Discuss Your Requirement <span>↗</span></a>
+          <a href="#expertise" class="button button-ghost">Explore Our Services</a>
         </div>
       </div>
+    </section>
 
-      <div class="hb-plate hero-hb" aria-label="HB signature mark">
-        <div class="screw s1"></div><div class="screw s2"></div>
-        <b>HB</b>
-        <small>ENGINEERED WITH PURPOSE</small>
-      </div>
-</section>
-
-    <section class="why section" id="why">
+<section class="why section" id="why">
       <div class="section-head reveal">
         <div>
           <div class="section-label">WHY VULTRIX</div>
@@ -192,110 +195,101 @@
       <div class="section-head reveal">
         <div>
           <div class="section-label">ENGINEERING EXPERTISE</div>
-          <h2>Capability across thermal systems, projects and plant support.</h2>
+          <h2>Industrial furnace, combustion and engineering services under one roof.</h2>
         </div>
         <p>
-          These are not random service lines. They are built around real industrial work: furnace
-          systems, erection and commissioning, electrical and instrumentation scope, manufacturing support
-          and practical project coordination.
+          From industrial furnace sourcing and shutdown work to fabrication, machining, piping, electrical, instrumentation and automation, we connect the right technical capabilities with each requirement.
         </p>
       </div>
 
       <div class="service-grid">
         <article class="service-card reveal feature">
           <div class="service-number">01</div>
-          <h3>Furnace & Combustion Engineering</h3>
-          <p>Support for reheating and industrial furnace systems, combustion performance, burner systems, fuel handling and energy-focused engineering decisions.</p>
+          <h3>Industrial Furnace Sourcing & Supply</h3>
+          <p>Furnace solutions matched to your process requirements. We coordinate specialist furnace manufacturers, technical designs, proposals, pricing and, where agreed, erection and commissioning.</p>
           <ul>
-            <li>Walking beam / walking hearth / pusher / roller hearth applications</li>
-            <li>CAL, GGL, bogie and pit furnace exposure</li>
-            <li>Fuel conversion studies and implementation planning</li>
-            <li>Burner, nozzle and combustion parameter review</li>
-            <li>Oil / gas consumption optimisation support</li>
-            <li>Scale reduction and combustion tuning</li>
+            <li>Walking beam, walking hearth, pusher and roller hearth furnaces</li>
+            <li>Roll Down Furnace, bogie hearth, pit furnace and other industrial furnace requirements</li>
+            <li>Manufacturer sourcing, specification and drawing coordination</li>
+            <li>Commercial offers, installation and commissioning support</li>
           </ul>
         </article>
-
         <article class="service-card reveal">
           <div class="service-number">02</div>
-          <h3>Erection, Installation & Commissioning</h3>
-          <p>Execution support for heavy equipment, machinery and plant systems — from site readiness and alignment through trial and technical handover.</p>
+          <h3>Furnace Shutdown, Revamping & Combustion Engineering</h3>
+          <p>Planned furnace shutdowns, revamps, maintenance and combustion-performance work, using agreed specialist manpower or the client's own team.</p>
           <ul>
-            <li>Heavy equipment and machinery erection</li>
-            <li>Rollers, structures, chimneys and associated systems</li>
-            <li>Lifting, shifting and alignment coordination</li>
-            <li>Pre-commissioning checks and trial support</li>
+            <li>Furnace shutdown planning, refurbishment and revamping</li>
+            <li>Burner setting, nozzle review and combustion tuning</li>
+            <li>FO-to-LDO and other fuel-conversion assessment and implementation</li>
+            <li>Oil / gas consumption optimisation and scale-reduction support</li>
+            <li>Execution with Vultrix-arranged or client-provided manpower</li>
           </ul>
         </article>
-
         <article class="service-card reveal">
           <div class="service-number">03</div>
-          <h3>Electrical & Instrumentation</h3>
-          <p>Industrial electrical and instrumentation engineering from cable schedules and I/O planning through installation, testing and commissioning.</p>
+          <h3>Fabrication, Engineering, Machining, Foundry & Piping</h3>
+          <p>Drawing-led industrial manufacturing and mechanical work through suitable specialist workshops, foundries and execution partners.</p>
           <ul>
-            <li>LT / HT power and control systems</li>
-            <li>Cable tray routing, cable sizing and schedules</li>
-            <li>Instrumentation I/O and signal cabling</li>
-            <li>Transformer, DG, RMU and feeder pillar installation</li>
+            <li>Custom fabrication, structural assemblies and welding</li>
+            <li>General / precision machining and industrial spares</li>
+            <li>Foundry and casting requirements</li>
+            <li>Industrial piping, pipe fabrication and installation</li>
+            <li>Manufacturing drawings, samples and reverse engineering</li>
           </ul>
         </article>
-
         <article class="service-card reveal">
           <div class="service-number">04</div>
-          <h3>Mechanical & Refractory Support</h3>
-          <p>Multidisciplinary coordination for furnace mechanical, refractory and structural work, with focus on interfaces, sequencing and commissioning readiness.</p>
+          <h3>Electrical, Instrumentation & Automation</h3>
+          <p>Support for industrial electrical, control and instrumentation systems, with site execution and commissioning coordinated to the approved scope.</p>
           <ul>
-            <li>Mechanical equipment erection</li>
-            <li>Refractory execution coordination</li>
-            <li>Structural and equipment interface checks</li>
+            <li>Industrial power and control systems</li>
+            <li>Instrumentation I/O, field devices and signal integration</li>
+            <li>PLC, automation and control-panel integration</li>
+            <li>Instrument calibration, loop checks and system commissioning</li>
+          </ul>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-number">05</div>
+          <h3>Erection, Installation & Commissioning</h3>
+          <p>Mechanical and multidisciplinary installation support from site readiness through equipment alignment, trial and handover.</p>
+          <ul>
+            <li>Industrial furnaces, heavy equipment and machinery erection</li>
+            <li>Rollers, structural systems and associated plant equipment</li>
+            <li>Lifting, shifting, alignment and site coordination</li>
+            <li>Pre-commissioning checks and performance trials</li>
+          </ul>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-number">06</div>
+          <h3>Mechanical & Refractory Support</h3>
+          <p>Support for furnace mechanical, structural and refractory works, coordinated with shutdown schedules and operational needs.</p>
+          <ul>
+            <li>Refractory installation and repair coordination</li>
+            <li>Mechanical equipment erection and inspection</li>
+            <li>Structural interfaces and furnace modifications</li>
             <li>Inspection and punch-point closure support</li>
           </ul>
         </article>
-
-        <article class="service-card reveal">
-          <div class="service-number">05</div>
-          <h3>Project Management & Site Leadership</h3>
-          <p>Hands-on project planning, site supervision and cross-functional coordination built around schedule, safety, technical closure and customer handover.</p>
-          <ul>
-            <li>Project planning and scheduling</li>
-            <li>Site supervision and resource coordination</li>
-            <li>Troubleshooting and fault finding</li>
-            <li>Vendor, tool and team management</li>
-          </ul>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-number">06</div>
-          <h3>Industrial Logistics & Warehousing</h3>
-          <p>Project-material logistics for mechanical, electrical and instrumentation packages, including identification, storage, packing and dispatch coordination.</p>
-          <ul>
-            <li>Material identification and storage planning</li>
-            <li>Local and export packing</li>
-            <li>Container / lorry stuffing coordination</li>
-            <li>Loading, unloading and material handling</li>
-          </ul>
-        </article>
-
         <article class="service-card reveal">
           <div class="service-number">07</div>
-          <h3>Commercial Electrical & MEP</h3>
-          <p>Support for load planning, equipment selection, substation interfaces and MEP execution for commercial and industrial facilities.</p>
+          <h3>Industrial Project Execution & Site Management</h3>
+          <p>Technical and commercial coordination across scope definition, vendors, site teams, safety, milestones and commissioning.</p>
           <ul>
-            <li>Load calculation and cable sizing</li>
-            <li>Transformer / DG rating selection</li>
-            <li>LT / HT substation engineering support</li>
-            <li>MEP execution coordination</li>
+            <li>Project planning, scheduling and resource coordination</li>
+            <li>Vendor management and site supervision</li>
+            <li>Troubleshooting and multidisciplinary execution support</li>
+            <li>Inspection, testing, handover and closeout</li>
           </ul>
         </article>
-
         <article class="service-card reveal dark">
           <div class="service-number">08</div>
-          <h3>Complex, urgent or unusual requirement?</h3>
-          <p>Share the process condition, drawing, sample or operating issue. We’ll evaluate the route, information needed and the most practical next step.</p>
-          <a href="#rfq">Share the requirement →</a>
+          <h3>Have a non-standard requirement?</h3>
+          <p>Share your drawings, furnace specifications, site condition or technical problem. We will review the most practical engineering and sourcing route.</p>
+          <a href="#rfq">Share your requirement →</a>
         </article>
       </div>
-    </section>
+</section>
 
     <section class="cap-gallery section" id="gallery">
       <div class="section-head reveal">
@@ -394,20 +388,20 @@
         <p class="lead">
           Our technical team brings more than three decades of hands-on exposure across furnace systems,
           combustion, heavy equipment erection, electrical and instrumentation, refractory, mechanical
-          systems, project logistics, commissioning and customer handover.
+          systems, commissioning and customer handover.
         </p>
 
         <div class="experience-points">
           <div><b>Furnace & combustion</b><span>Reheating furnace commissioning, combustion setting, fuel optimisation and scale-reduction experience, including applications up to 350 TPH.</span></div>
           <div><b>Mechanical execution</b><span>Heavy equipment, rollers, structures, chimneys, machinery, lifting, shifting, alignment and installation coordination.</span></div>
-          <div><b>Electrical & instrumentation</b><span>LT / HT systems, transformers, DG, RMU, cabling, instrumentation I/O, testing, termination and commissioning exposure.</span></div>
+          <div><b>Electrical & instrumentation</b><span>Industrial power and control systems, field instrumentation, automation, testing, calibration and commissioning exposure.</span></div>
           <div><b>Refractory & multidisciplinary projects</b><span>Coordination across refractory, structural, mechanical, electrical and instrumentation interfaces.</span></div>
           <div><b>Project leadership</b><span>Planning, site management, troubleshooting, team coordination, safety, scheduling, trial and project handover.</span></div>
           <div><b>International project exposure</b><span>Our technical team has participated in industrial project work in India and international environments.</span></div>
         </div>
 
         <div class="experience-strip">
-          <span>WALKING BEAM</span><span>WALKING HEARTH</span><span>PUSHER</span><span>ROLLER HEARTH</span><span>CAL</span><span>GGL</span><span>BOGIE</span><span>PIT FURNACE</span>
+          <span>WALKING BEAM</span><span>WALKING HEARTH</span><span>PUSHER</span><span>ROLLER HEARTH</span><span>CAL</span><span>GGL</span><span>BOGIE</span><span>PIT FURNACE</span><span>ROLL DOWN FURNACE</span>
         </div>
       </div>
     </section>
@@ -477,12 +471,16 @@
           </div>
           <label>What do you need?
             <select id="service">
+              <option>Industrial Furnace Sourcing / Supply</option>
+              <option>Furnace Shutdown / Revamping</option>
               <option>Furnace / Combustion Engineering</option>
               <option>Fuel Conversion / Burner Requirement</option>
               <option>Custom Machining / Component</option>
               <option>Fabrication / Welding</option>
+              <option>Foundry / Casting</option>
+              <option>Industrial Piping</option>
               <option>Erection / Commissioning Support</option>
-              <option>Electrical / Instrumentation</option>
+              <option>Electrical / Instrumentation / Automation</option>
               <option>Replacement Spare / Reverse Engineering</option>
               <option>Other Industrial Requirement</option>
             </select>
@@ -514,18 +512,14 @@
   </div>
 <footer class="footer">
     <div class="footer-brand">
-      <svg class="brand-symbol" viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M9 11h13l10 31L42 11h13L38 54H26L9 11Z"/>
-        <path class="cut" d="M26 19h12l-6 19-6-19Z"/>
-      </svg>
-      <div><strong>VULTRIX GLOBAL</strong><small>ENGINEERING & INDUSTRIAL SOLUTIONS</small></div>
+      <img class="footer-official-logo" src="assets/vultrix-global-official.webp" alt="Vultrix Global — official logo" loading="lazy" />
     </div>
     <div class="footer-right">
       <a href="mailto:info@vultrixglobal.com">info@vultrixglobal.com</a>
       <span>vultrixglobal.com</span>
       <span>© <b id="year"></b> Vultrix Global. All rights reserved.</span>
     </div>
-    <div class="hb-plate footer-hb"><b>HB</b><small>SIGNATURE MARK</small></div>
+    
   </footer>
 
   <script src="script.js"></script>
