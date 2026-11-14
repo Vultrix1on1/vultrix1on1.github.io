@@ -661,3 +661,14 @@ button,input,textarea,select{font:inherit}
  .story-shade,.story-visual-two .story-shade,.story-visual-three .story-shade{background:linear-gradient(0deg,rgba(2,6,10,.87) 0%,rgba(2,6,10,.45) 62%,rgba(2,6,10,.07) 100%)}
 }
 @media(prefers-reduced-motion:reduce){.story-photo img{transform:none!important;transition:none!important}}
+
+/* Partner-led delivery model — customer-facing accountability without implying owned facilities */
+.delivery-model{max-width:1360px;margin:0 auto;padding:clamp(78px,9vw,142px) 24px}
+.delivery-model .section-head{gap:32px}
+.delivery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:40px}
+.delivery-grid article{position:relative;min-width:0;background:linear-gradient(145deg,rgba(24,31,38,.96),rgba(10,14,19,.98));border:1px solid rgba(255,255,255,.13);padding:clamp(22px,3vw,38px);border-radius:10px}
+.delivery-grid article>span{color:#f2a266;font:700 12px Manrope,sans-serif;letter-spacing:.16em}
+.delivery-grid article h3{margin:26px 0 12px;font:800 clamp(22px,2.1vw,32px) Manrope,sans-serif;letter-spacing:-.04em;color:#fff}
+.delivery-grid article p{margin:0;color:#b9c1c9;font-size:15px;line-height:1.8}
+.delivery-note{margin:26px 0 0;color:#adb7bf;font-size:13px;line-height:1.7;border-left:2px solid rgba(242,152,66,.7);padding:12px 20px;background:rgba(255,255,255,.025)}
+@media(max-width:780px){.delivery-grid{grid-template-columns:1fr;gap:12px}.delivery-model{padding:76px 20px}.delivery-grid article h3{margin-top:18px}}
