@@ -71,3 +71,15 @@ document.getElementById('whatsapp-rfq')?.addEventListener('click', () => {
   const msg = encodeURIComponent(enquiryText(d));
   window.open(`https://wa.me/919920342119?text=${msg}`,'_blank','noopener');
 });
+
+
+// Gently reveal full-screen industrial image panels as they enter the viewport.
+const storyObserver = new IntersectionObserver((entries) => {
+ entries.forEach((entry) => {
+   if (entry.isIntersecting) {
+     entry.target.classList.add('in-view');
+     storyObserver.unobserve(entry.target);
+   }
+ });
+}, {threshold: 0.15});
+document.querySelectorAll('.story-visual').forEach(panel => storyObserver.observe(panel));
