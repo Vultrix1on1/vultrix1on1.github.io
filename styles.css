@@ -553,3 +553,19 @@ button,input,textarea,select{font:inherit}
   .hero-actions{margin-top:24px}
   .footer-official-logo{width:min(260px,82vw)}
 }
+
+/* Furnace catalogue — review branch */
+.furnace-catalogue{padding-top:clamp(64px,8vw,124px);padding-bottom:clamp(64px,8vw,124px)}
+.furnace-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:34px}
+.furnace-tile{min-width:0;padding:clamp(22px,3vw,36px);border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.015));border-radius:15px}
+.furnace-tile>span{display:block;font-size:11px;letter-spacing:.13em;font-weight:700;color:#d8b378;margin-bottom:22px}
+.furnace-tile h3{font-size:clamp(19px,2vw,25px);line-height:1.25;margin:0 0 14px}
+.furnace-tile p{color:#b8bdc4;line-height:1.7;margin:0;font-size:14px}
+.furnace-next{margin-top:24px;padding:28px 32px;border:1px solid rgba(255,255,255,.14);border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:25px;background:rgba(255,255,255,.035)}
+.furnace-next strong{font-size:20px}
+.furnace-next p{color:#b8bdc4;margin:9px 0 0;max-width:650px;line-height:1.6}
+.furnace-next .button{white-space:nowrap}
+.rfq-technical{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rfq-technical label:last-child{grid-column:1/-1}
+@media(max-width:900px){.furnace-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.furnace-next{align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.furnace-grid{grid-template-columns:1fr}.rfq-technical{grid-template-columns:1fr}.rfq-technical label:last-child{grid-column:auto}.furnace-next{padding:24px}}
