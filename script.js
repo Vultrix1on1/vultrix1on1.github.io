@@ -30,7 +30,10 @@ function enquiryData(){
     email: document.getElementById('email')?.value.trim() || '',
     service: document.getElementById('service')?.value || '',
     contactpref: document.getElementById('contactpref')?.value || '',
-    requirement: document.getElementById('requirement')?.value.trim() || ''
+    requirement: document.getElementById('requirement')?.value.trim() || '',
+    furnaceType: document.getElementById('furnace-type')?.value.trim() || '',
+    fuelType: document.getElementById('fuel-type')?.value.trim() || '',
+    operatingSpec: document.getElementById('operating-spec')?.value.trim() || ''
   };
 }
 
@@ -44,6 +47,9 @@ Company / Plant: ${d.company || '-'}
 Email: ${d.email || '-'}
 Requirement Type: ${d.service}
 Preferred Contact: ${d.contactpref}
+Process / Furnace: ${d.furnaceType || '-'}
+Fuel / Energy: ${d.fuelType || '-'}
+Temperature / Throughput: ${d.operatingSpec || '-'}
 
 Requirement:
 ${d.requirement}
