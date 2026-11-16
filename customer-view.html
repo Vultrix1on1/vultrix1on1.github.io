@@ -96,6 +96,30 @@
 .form-card .wa-btn:hover{background:#d9f1e6}
 .mobile-quick a:first-child{background:#185f49}
 @media(max-width:540px){.hero .button-row{align-items:stretch}.hero .button-row a{flex:1 1 170px;text-align:center}}
+
+/* Cinemagraph: animate only the orange fire pixels of the approved hero photo. */
+/* Base photograph, structures, typography and CTAs stay still; no extra video download. */
+.flame-filter-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.hero .hero-media{animation:none;transform:none}
+.hero .hero-flame-layer{
+  position:absolute;inset:0;
+  background-image:url('https://images.pexels.com/photos/37512426/pexels-photo-37512426.jpeg?auto=compress&cs=tinysrgb&w=2200');
+  background-size:cover;
+  background-position:65% 51%;
+  pointer-events:none;
+  filter:url(#vg-flame-warp);
+  opacity:.84;
+  animation:vg-fire-flicker 3.9s ease-in-out infinite;
+}
+@keyframes vg-fire-flicker{
+  0%,100%{opacity:.77}
+  23%{opacity:.91}
+  54%{opacity:.81}
+  76%{opacity:.96}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .hero-flame-layer{display:none;animation:none;filter:none}
+}
 </style>
 </head>
 <body>
@@ -111,7 +135,24 @@
 </header>
 <main id="top">
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero-media" role="img" aria-label="Illustrative industrial furnace flames"></div><div class="hero-shade"></div><div class="hero-grid"></div>
+  <svg class="flame-filter-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <filter id="vg-flame-warp" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.047" numOctaves="2" seed="7" result="flame-noise">
+          <animate attributeName="baseFrequency" values="0.012 0.047;0.016 0.059;0.013 0.052;0.010 0.062;0.012 0.047" dur="4.1s" repeatCount="indefinite" />
+          <animate attributeName="seed" values="7;8;9;10;7" dur="7.5s" repeatCount="indefinite" calcMode="discrete" />
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="flame-noise" scale="15" xChannelSelector="R" yChannelSelector="G" result="moving-flames" />
+        <!-- The alpha mask selects bright orange / yellow pixels; the metalwork is left on the original static image. -->
+        <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   1.2 0.5 -1.3 0 -0.22" result="warm-pixels" />
+        <feGaussianBlur in="warm-pixels" stdDeviation="1.6" result="soft-warm-mask" />
+        <feComposite in="moving-flames" in2="soft-warm-mask" operator="in" />
+      </filter>
+    </defs>
+  </svg>
+  <div class="hero-media" role="img" aria-label="Illustrative industrial furnace flames"></div>
+  <div class="hero-flame-layer" aria-hidden="true"></div>
+  <div class="hero-shade"></div><div class="hero-grid"></div>
   <div class="hero-wrap"><div class="hero-copy">
     <div class="kicker">VULTRIX GLOBAL / PAN-INDIA INDUSTRIAL ENGINEERING SOLUTIONS</div>
     <h1 id="hero-title">Industrial furnaces.<br><em>Engineered around your process.</em></h1>
