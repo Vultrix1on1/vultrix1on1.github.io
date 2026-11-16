@@ -88,6 +88,14 @@
   .feature-image{min-height:270px}
   .feature-copy h2{font-size:36px}
 }
+
+/* WhatsApp contact actions without a visible phone number */
+.wa-contact-link{color:#17664f!important;display:inline-flex;align-items:center}
+.wa-contact-link:hover{text-decoration:underline;text-underline-offset:4px}
+.form-card .wa-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #237c60;color:#17634d;background:#eef8f4;font-weight:800;padding:15px 18px;transition:background .2s ease}
+.form-card .wa-btn:hover{background:#d9f1e6}
+.mobile-quick a:first-child{background:#185f49}
+@media(max-width:540px){.hero .button-row{align-items:stretch}.hero .button-row a{flex:1 1 170px;text-align:center}}
 </style>
 </head>
 <body>
@@ -108,7 +116,7 @@
     <div class="kicker">VULTRIX GLOBAL / PAN-INDIA INDUSTRIAL ENGINEERING SOLUTIONS</div>
     <h1 id="hero-title">Industrial furnaces.<br><em>Engineered around your process.</em></h1>
     <p class="hero-description">Furnace sourcing, installation and commissioning support, combustion engineering, shutdowns and revamping — practical project support for industrial facilities across India.</p>
-    <div class="button-row"><a class="button-primary" href="#contact">Discuss Your Project <span aria-hidden="true">↗</span></a><a class="button-secondary" href="#solutions">Explore Solutions <span aria-hidden="true">↓</span></a></div>
+    <div class="button-row"><a class="button-primary" href="#contact">Discuss Your Project <span aria-hidden="true">↗</span></a><a class="button-secondary" href="https://wa.me/919920342119?text=Hello%20Vultrix%20Global%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20requirement." target="_blank" rel="noopener noreferrer">Chat on WhatsApp <span aria-hidden="true">↗</span></a></div>
   </div></div>
   <div class="hero-bottom"><span>FURNACES &nbsp; / &nbsp; COMBUSTION &nbsp; / &nbsp; PAN-INDIA PROJECT SUPPORT</span><span>SCROLL TO EXPLORE ↓</span></div>
 </section>
@@ -207,7 +215,7 @@
 </section>
 <section class="section contact" id="contact"><div class="inner contact-grid">
   <div class="contact-left"><div class="section-kicker">PAN-INDIA ENGINEERING SUPPORT</div><h2>Tell us what your plant needs.</h2><p>Wherever your plant is located in India, share your operating problem, preliminary scope, drawing or planned furnace installation. Tell us the plant location and our team can review the requirement.</p>
-    <div class="contact-method"><small>EMAIL</small><a href="mailto:info@vultrixglobal.com">info@vultrixglobal.com</a></div>
+    <div class="contact-method"><small>EMAIL</small><a href="mailto:info@vultrixglobal.com">info@vultrixglobal.com</a></div><div class="contact-method"><small>WHATSAPP</small><a class="wa-contact-link" href="https://wa.me/919920342119?text=Hello%20Vultrix%20Global%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20requirement." target="_blank" rel="noopener noreferrer">Chat with our team ↗</a></div>
     <div class="contact-method"><small>ONLINE</small><a href="https://vultrixglobal.com" target="_blank" rel="noopener">vultrixglobal.com</a></div>
   </div>
   <div class="form-card"><h3>Start a technical enquiry</h3>
@@ -215,8 +223,8 @@
     <div class="form-row"><label>Email *<input id="email" name="email" type="email" required autocomplete="email" placeholder="name@company.com"></label><label>Requirement Area<select id="category" name="category"><option>New industrial furnace</option><option>Furnace revamp / shutdown</option><option>Combustion / burner / fuel conversion</option><option>Erection / commissioning</option><option>Fabrication / machining / piping</option><option>Electrical / instrumentation / automation</option><option>Other engineering requirement</option></select></label></div>
     <label>Plant location / State<input id="plant-location" name="plant-location" placeholder="City, State (e.g., Pune, Maharashtra)"></label>
     <label>Brief requirement *<textarea id="message" name="message" rows="5" required placeholder="Plant location, equipment, process, capacity, technical issue, schedule or drawing reference..."></textarea></label>
-    <div class="form-actions"><button type="submit" class="button-primary">Prepare Email Enquiry ↗</button></div>
-    <small>Your email app will open with the enquiry details. You can attach drawings and specifications before sending.</small></form>
+    <div class="form-actions"><button type="submit" class="button-primary">Prepare Email Enquiry ↗</button><button type="button" class="wa-btn" id="wa-enquiry">Continue on WhatsApp ↗</button></div>
+    <small>Choose email or WhatsApp to send your requirement. You can share drawings and specifications directly in the conversation.</small></form>
   </div>
 </div></section>
 </main>
@@ -224,7 +232,7 @@
 <div class="footer-flex"><div><img class="footer-logo" src="assets/vultrix-global-official.webp" alt="Vultrix Global"><p style="font-size:12px;letter-spacing:.15em;color:#9bb2c6">ENGINEERING &amp; INDUSTRIAL SOLUTIONS</p></div><div class="footer-text">Industrial furnace, combustion and mechanical engineering solutions. Supporting technical requirements and partner-coordinated project execution across India. </div></div>
 <div class="footer-bottom"><span>© <span id="year"></span> Vultrix Global. All rights reserved.</span></div>
 </div></footer>
-<div class="mobile-quick"><a href="mailto:info@vultrixglobal.com">Email Us</a><a href="#contact">Start an Enquiry</a></div>
+<div class="mobile-quick"><a href="https://wa.me/919920342119?text=Hello%20Vultrix%20Global%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20requirement." target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="#contact">Start an Enquiry</a></div>
 <script>
 document.getElementById("year").textContent=new Date().getFullYear();
 var btn=document.querySelector(".menu-btn");var nav=document.querySelector(".navigation");btn.addEventListener("click",function(){var open=nav.classList.toggle("open");btn.setAttribute("aria-expanded",String(open));});nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");btn.setAttribute("aria-expanded","false");});});
@@ -233,6 +241,13 @@ function enquiryText(d){return"Hello Vultrix Global,\n\nI would like to discuss 
 document.getElementById("enquiry").addEventListener("submit",function(e){e.preventDefault();if(!this.reportValidity())return;var d=enquiryData();location.href="mailto:info@vultrixglobal.com?subject="+encodeURIComponent("Vultrix technical enquiry — "+d.category)+"&body="+encodeURIComponent(enquiryText(d));});
 
 
+
+document.getElementById("wa-enquiry").addEventListener("click",function(){
+ var d=enquiryData();
+ var hasDetails=d.name || d.company || d.email || d.plantLocation || d.message;
+ var message=hasDetails?enquiryText(d):"Hello Vultrix Global, I would like to discuss an industrial requirement.";
+ window.open("https://wa.me/919920342119?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");
+});
 document.querySelectorAll('a[data-service]').forEach(function(link){
   link.addEventListener('click',function(){
     var select=document.getElementById('category');
