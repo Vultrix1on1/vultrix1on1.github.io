@@ -109,7 +109,7 @@
   pointer-events:none;
   filter:url(#vg-flame-warp);
   opacity:.84;
-  animation:vg-fire-flicker 3.9s ease-in-out infinite;
+  animation:vg-fire-flicker 7.8s ease-in-out infinite;
 }
 @keyframes vg-fire-flicker{
   0%,100%{opacity:.77}
@@ -139,8 +139,8 @@
     <defs>
       <filter id="vg-flame-warp" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
         <feTurbulence type="fractalNoise" baseFrequency="0.012 0.047" numOctaves="2" seed="7" result="flame-noise">
-          <animate attributeName="baseFrequency" values="0.012 0.047;0.016 0.059;0.013 0.052;0.010 0.062;0.012 0.047" dur="4.1s" repeatCount="indefinite" />
-          <animate attributeName="seed" values="7;8;9;10;7" dur="7.5s" repeatCount="indefinite" calcMode="discrete" />
+          <animate attributeName="baseFrequency" values="0.012 0.047;0.016 0.059;0.013 0.052;0.010 0.062;0.012 0.047" dur="8.2s" repeatCount="indefinite" />
+          <animate attributeName="seed" values="7;8;9;10;7" dur="15s" repeatCount="indefinite" calcMode="discrete" />
         </feTurbulence>
         <feDisplacementMap in="SourceGraphic" in2="flame-noise" scale="15" xChannelSelector="R" yChannelSelector="G" result="moving-flames" />
         <!-- The alpha mask selects bright orange / yellow pixels; the metalwork is left on the original static image. -->
