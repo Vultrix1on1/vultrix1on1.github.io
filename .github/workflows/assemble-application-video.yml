@@ -1,0 +1,23 @@
+name: Assemble application video
+on:
+  push:
+    paths:
+      - '.github/workflows/assemble-application-video.yml'
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble existing video chunks
+        run: |
+          cat afternoon-assets/furnace-video-*.bin > afternoon-assets/furnace-application.mp4
+          test "$(wc -c < afternoon-assets/furnace-application.mp4)" -eq 7965866
+      - name: Publish assembled file
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add afternoon-assets/furnace-application.mp4
+          git commit -m "Publish browser-ready furnace application MP4" || exit 0
+          git push
