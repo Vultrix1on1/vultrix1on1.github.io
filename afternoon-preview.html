@@ -240,7 +240,7 @@
 <section class="section media-section" id="industrial-media"><div class="inner">
 <div class="section-head"><div><div class="section-kicker">INDUSTRIAL APPLICATIONS / VISUAL GALLERY</div><h2>Engineering in real industrial environments.</h2></div><p>Explore examples of thermal processing, furnace discharge and material handling environments relevant to our engineering discussions.</p></div>
 <div class="media-layout">
-<figure class="media-video"><video id="vg-application-video" controls playsinline preload="none" poster="afternoon-assets/furnace-poster.webp" aria-label="Illustrative furnace and material handling video"></video><figcaption><strong>Furnace and hot material handling</strong>Industrial application video.<br><button type="button" class="media-play" id="vg-load-video">Play application video ▶</button><div id="vg-video-status" role="status" aria-live="polite"></div></figcaption></figure>
+<figure class="media-video"><video id="vg-application-video" controls playsinline webkit-playsinline preload="metadata" poster="afternoon-assets/furnace-poster.webp" aria-label="Illustrative furnace and material handling video"><source src="afternoon-assets/furnace-application.mp4" type="video/mp4"><source src="https://raw.githubusercontent.com/Vultrix1on1/vultrix1on1.github.io/main/afternoon-assets/furnace-application.mp4" type="video/mp4">Your browser does not support embedded video.</video><figcaption><strong>Furnace and hot material handling</strong>Industrial application video. Tap the play icon to watch.<br><a href="afternoon-assets/furnace-application.mp4" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700">Open video separately ↗</a><div id="vg-video-status" role="status" aria-live="polite"></div></figcaption></figure>
 <div class="media-stack">
 <figure class="media-photo"><img loading="lazy" src="afternoon-assets/furnace-poster.webp" alt="Heated steel slab in an industrial furnace"><figcaption><strong>Furnace thermal processing</strong>Heated material in a furnace environment.</figcaption></figure>
 <figure class="media-photo"><img loading="lazy" src="afternoon-assets/furnace-discharge.webp" alt="Furnace discharge and roller table"><figcaption><strong>Furnace discharge</strong>Roller table and material transfer.</figcaption></figure>
@@ -329,18 +329,17 @@ document.querySelectorAll('a[data-service]').forEach(function(link){
 </script>
 <script>
 (function(){
-const v=document.getElementById('vg-application-video'),btn=document.getElementById('vg-load-video'),status=document.getElementById('vg-video-status');let loading=false,loaded=false;
-btn.addEventListener('click',async function(){
- if(loading)return;
- if(loaded){v.play().catch(()=>{status.textContent='Use the video player controls to start playback.';});return;}
- loading=true;btn.disabled=true;status.textContent='Loading video…';
- try{
- const paths=Array.from({length:14},(_,i)=>'afternoon-assets/furnace-video-'+String(i).padStart(2,'0')+'.bin');
- const parts=await Promise.all(paths.map(async p=>{const r=await fetch(p);if(!r.ok)throw new Error('Video unavailable');return r.arrayBuffer();}));
- v.src=URL.createObjectURL(new Blob(parts,{type:'video/mp4'}));loaded=true;status.textContent='';btn.textContent='Play application video ▶';
- try{await v.play();}catch(e){status.textContent='Video loaded. Tap the player’s play button.';}
- }catch(e){status.textContent='Could not load the video. Please try again.';btn.textContent='Retry video';}
- finally{loading=false;btn.disabled=false;}
-});
+ const v=document.getElementById('vg-application-video'),status=document.getElementById('vg-video-status');
+ let fallback=false;
+ v.addEventListener('error',async function(){
+  if(fallback){status.textContent='Video could not be loaded. Try opening it separately.';return;}
+  fallback=true;status.textContent='Loading backup video…';
+  try{
+   const paths=Array.from({length:14},(_,i)=>'afternoon-assets/furnace-video-'+String(i).padStart(2,'0')+'.bin');
+   const parts=await Promise.all(paths.map(async p=>{let r=await fetch(p);if(!r.ok)throw Error('Missing asset');return r.arrayBuffer();}));
+   if(parts.reduce((n,x)=>n+x.byteLength,0)!==7965866)throw Error('Incomplete video');
+   v.src=URL.createObjectURL(new Blob(parts,{type:'video/mp4'}));v.load();status.textContent='Video ready. Tap play.';
+  }catch(e){status.textContent='Video could not be loaded. Try opening it separately.';}
+ });
 })();
 </script></body></html>
